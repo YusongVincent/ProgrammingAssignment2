@@ -2,7 +2,6 @@
 
 ## The first function creates a special "vector",
 ## which is really a list containing functions
-
 makeCacheMatrix <- function(x = matrix()) {
         inver <- NULL
         set <- function(y){
