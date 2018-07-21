@@ -8,16 +8,20 @@
 ##get the value of the mean
 makeCacheMatrix <- function(x = matrix()) {
         inver <- NULL
+        # set the value for the matrix
         set <- function(y){
                 x<<-y
                 inver<<-NULL
         }
+        # get the value of the matrix
         get <- function(){
                 x
         }
+        # set the inverse matrix
         set_inverse <- function(y){
                 inver <<- y
         }
+        #get the matrix's inverse
         get_inverse <- function(){
                 inver
         }
@@ -33,13 +37,15 @@ makeCacheMatrix <- function(x = matrix()) {
 
 cacheSolve <- function(x, ...) {
         inver <- x$get_inverse()
+        # check if the inverse has already been calculated
         if(!is.null(x$get_inverse())){
                 print("getting cached data")
                 return(inver)
         }
+        # calculate and save the inverse
         data <- x$get()
         y <- solve(data,...)
         x$set_inverse(y)
-        y
         ## Return a matrix that is the inverse of 'the matrix
+        y
 }
